@@ -4,12 +4,13 @@
 
 `Information`
 
-| Info          | Value            |
-| ------------- | ---------------- |
-| PATH          | /v1/stories      |
-| Method        | GET              |
-| Content-Type  | application/json |
-| Authorization | -                |
+This API only return stories with approved status
+
+| Info          | Value       |
+| ------------- | ----------- |
+| PATH          | /v1/stories |
+| Method        | GET         |
+| Authorization | -           |
 
 `Query Parameters`
 
@@ -30,7 +31,7 @@
         "author": "Fadhlan Hidayat",
         "title": "Story title",
         "story": "Story content",
-        "status": 0,
+        "status": "approved",
         "email": "hifadhlan@gmail.com",
         "created_on": "2021-07-24 19:33:00.049559 +0000 +0000"
       },
@@ -39,7 +40,7 @@
         "author": "Fadhlan Hidayat",
         "title": "Story title",
         "story": "Story content",
-        "status": 0,
+        "status": "approved",
         "email": "hifadhlan@gmail.com",
         "created_on": "2021-07-24 19:28:46.856172 +0000 +0000"
       }
@@ -84,13 +85,13 @@
   "message": "success.post_stories",
   "data": {
     "story": {
-      "id": 5,
+      "id": 6,
       "author": "Fadhlan Hidayat",
       "title": "Story title",
       "story": "Story content",
-      "status": 0,
+      "status": "submitted",
       "email": "hifadhlan@gmail.com",
-      "created_on": "2021-07-24 19:33:00.049558995 +0000 UTC"
+      "created_on": "2021-07-24 20:19:07.348034323 +0000 UTC"
     }
   }
 }
