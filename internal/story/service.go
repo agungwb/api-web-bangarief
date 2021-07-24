@@ -44,7 +44,7 @@ func (s service) Create(ctx context.Context, request request.Create) (*response.
 	var story entity.Story
 	request.Populate(&story)
 
-	story.Status = sql.NullInt32{Int32: constants.StorySubmitted, Valid: true}
+	story.Status = sql.NullString{String: constants.StorySubmitted, Valid: true}
 	story.CreatedOn = sql.NullTime{Time: time.Now().UTC(), Valid: true}
 
 	if err := s.repo.Create(ctx, &story); err != nil {

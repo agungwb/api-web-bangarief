@@ -7,7 +7,7 @@ type story struct {
 	Author    string `json:"author"`
 	Title     string `json:"title"`
 	Story     string `json:"story"`
-	Status    int32  `json:"status"`
+	Status    string `json:"status"`
 	Email     string `json:"email"`
 	CreatedOn string `json:"created_on"`
 }
@@ -30,7 +30,7 @@ func (res *Query) Set(data []entity.Story) {
 			Author:    item.Author.String,
 			Title:     item.Title.String,
 			Story:     item.Story.String,
-			Status:    item.Status.Int32,
+			Status:    item.Status.String,
 			Email:     item.Email.String,
 			CreatedOn: item.CreatedOn.Time.String(),
 		})
@@ -51,7 +51,7 @@ func (res *Create) Set(data *entity.Story) {
 	res.Data.Story.Author = data.Author.String
 	res.Data.Story.Title = data.Title.String
 	res.Data.Story.Story = data.Story.String
-	res.Data.Story.Status = data.Status.Int32
+	res.Data.Story.Status = data.Status.String
 	res.Data.Story.Email = data.Email.String
 	res.Data.Story.CreatedOn = data.CreatedOn.Time.String()
 }

@@ -2,11 +2,11 @@ package constants
 
 const (
 	// StorySubmitted ...
-	StorySubmitted int32 = 0
+	StorySubmitted = "submitted"
 	// StoryApproved ...
-	StoryApproved int32 = 1
+	StoryApproved = "approved"
 	// StoryDenied ...
-	StoryDenied int32 = 2
+	StoryDenied = "denied"
 
 	// DefaultStoryLimit ...
 	DefaultStoryLimit int64 = 3

@@ -8,7 +8,7 @@ type Story struct {
 	Author    sql.NullString
 	Title     sql.NullString
 	Story     sql.NullString
-	Status    sql.NullInt32
+	Status    sql.NullString
 	Email     sql.NullString
 	CreatedOn sql.NullTime
 }
