@@ -1,3 +1,101 @@
+# API Documentation
+
+### Query Stories
+
+`Information`
+
+| Info          | Value            |
+| ------------- | ---------------- |
+| PATH          | /v1/stories      |
+| Method        | GET              |
+| Content-Type  | application/json |
+| Authorization | -                |
+
+`Query Parameters`
+
+| Required | Name  | Description                                  |
+| -------- | ----- | -------------------------------------------- |
+| No       | id    | Query will return story data smaller than id |
+| No       | limit | Default limit is 3                           |
+
+`Response Body`
+
+```json
+{
+  "message": "success.query_stories",
+  "data": {
+    "stories": [
+      {
+        "id": 5,
+        "author": "Fadhlan Hidayat",
+        "title": "Story title",
+        "story": "Story content",
+        "status": 0,
+        "email": "hifadhlan@gmail.com",
+        "created_on": "2021-07-24 19:33:00.049559 +0000 +0000"
+      },
+      {
+        "id": 4,
+        "author": "Fadhlan Hidayat",
+        "title": "Story title",
+        "story": "Story content",
+        "status": 0,
+        "email": "hifadhlan@gmail.com",
+        "created_on": "2021-07-24 19:28:46.856172 +0000 +0000"
+      }
+    ]
+  }
+}
+```
+
+### Create Stories
+
+`Information`
+
+| Info          | Value            |
+| ------------- | ---------------- |
+| PATH          | /v1/stories      |
+| Method        | POST             |
+| Content-Type  | application/json |
+| Authorization | -                |
+
+`Request Body`
+
+| Required | Name   | Type   |
+| -------- | ------ | ------ |
+| Yes      | author | string |
+| Yes      | title  | string |
+| Yes      | story  | string |
+| Yes      | email  | string |
+
+```json
+{
+  "author": "Fadhlan Hidayat",
+  "title": "Story title",
+  "story": "Story content",
+  "email": "hifadhlan@gmail.com"
+}
+```
+
+`Response Body`
+
+```json
+{
+  "message": "success.post_stories",
+  "data": {
+    "story": {
+      "id": 5,
+      "author": "Fadhlan Hidayat",
+      "title": "Story title",
+      "story": "Story content",
+      "status": 0,
+      "email": "hifadhlan@gmail.com",
+      "created_on": "2021-07-24 19:33:00.049558995 +0000 UTC"
+    }
+  }
+}
+```
+
 # Go RESTful API Starter Kit (Boilerplate)
 
 [![GoDoc](https://godoc.org/api-web-bangarief?status.png)](http://godoc.org/api-web-bangarief)
