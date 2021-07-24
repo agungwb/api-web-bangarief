@@ -1,10 +1,10 @@
 package album
 
 import (
+	"api-web-bangarief/internal/entity"
+	"api-web-bangarief/pkg/dbcontext"
+	"api-web-bangarief/pkg/log"
 	"context"
-	"github.com/qiangxue/go-rest-api/internal/entity"
-	"github.com/qiangxue/go-rest-api/pkg/dbcontext"
-	"github.com/qiangxue/go-rest-api/pkg/log"
 )
 
 // Repository encapsulates the logic to access albums from the data source.

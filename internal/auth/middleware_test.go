@@ -1,9 +1,9 @@
 package auth
 
 import (
+	"api-web-bangarief/internal/test"
 	"context"
 	"github.com/dgrijalva/jwt-go"
-	"github.com/qiangxue/go-rest-api/internal/test"
 	"github.com/stretchr/testify/assert"
 	"net/http"
 	"testing"

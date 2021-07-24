@@ -1,12 +1,12 @@
 package auth
 
 import (
+	"api-web-bangarief/internal/entity"
+	"api-web-bangarief/internal/errors"
 	"context"
 	"github.com/dgrijalva/jwt-go"
 	routing "github.com/go-ozzo/ozzo-routing/v2"
 	"github.com/go-ozzo/ozzo-routing/v2/auth"
-	"github.com/qiangxue/go-rest-api/internal/entity"
-	"github.com/qiangxue/go-rest-api/internal/errors"
 	"net/http"
 )
 

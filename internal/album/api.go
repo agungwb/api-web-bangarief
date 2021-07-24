@@ -1,10 +1,10 @@
 package album
 
 import (
+	"api-web-bangarief/internal/errors"
+	"api-web-bangarief/pkg/log"
+	"api-web-bangarief/pkg/pagination"
 	"github.com/go-ozzo/ozzo-routing/v2"
-	"github.com/qiangxue/go-rest-api/internal/errors"
-	"github.com/qiangxue/go-rest-api/pkg/log"
-	"github.com/qiangxue/go-rest-api/pkg/pagination"
 	"net/http"
 )
 

@@ -1,9 +1,9 @@
 package main
 
 import (
+	"api-web-bangarief/pkg/log"
 	"context"
 	"fmt"
-	"github.com/qiangxue/go-rest-api/pkg/log"
 	"github.com/stretchr/testify/assert"
 	"testing"
 	"time"

@@ -1,10 +1,10 @@
 package auth
 
 import (
+	"api-web-bangarief/internal/errors"
+	"api-web-bangarief/internal/test"
+	"api-web-bangarief/pkg/log"
 	"context"
-	"github.com/qiangxue/go-rest-api/internal/errors"
-	"github.com/qiangxue/go-rest-api/internal/test"
-	"github.com/qiangxue/go-rest-api/pkg/log"
 	"net/http"
 	"testing"
 )

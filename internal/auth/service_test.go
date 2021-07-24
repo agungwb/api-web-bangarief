@@ -1,10 +1,10 @@
 package auth
 
 import (
+	"api-web-bangarief/internal/entity"
+	"api-web-bangarief/internal/errors"
+	"api-web-bangarief/pkg/log"
 	"context"
-	"github.com/qiangxue/go-rest-api/internal/entity"
-	"github.com/qiangxue/go-rest-api/internal/errors"
-	"github.com/qiangxue/go-rest-api/pkg/log"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )

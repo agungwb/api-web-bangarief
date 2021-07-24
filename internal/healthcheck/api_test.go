@@ -1,8 +1,8 @@
 package healthcheck
 
 import (
-	"github.com/qiangxue/go-rest-api/internal/test"
-	"github.com/qiangxue/go-rest-api/pkg/log"
+	"api-web-bangarief/internal/test"
+	"api-web-bangarief/pkg/log"
 	"net/http"
 	"testing"
 )
