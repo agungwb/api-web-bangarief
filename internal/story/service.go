@@ -13,7 +13,7 @@ import (
 
 // Service ...
 type Service interface {
-	Query(ctx context.Context, ID string, limit int64) (*response.Query, error)
+	Query(ctx context.Context, ID, limit int64) (*response.Query, error)
 	Create(ctx context.Context, request request.Create) (*response.Create, error)
 }
 
@@ -27,7 +27,7 @@ func NewService(repo Repository, logger log.Logger) Service {
 	return service{repo, logger}
 }
 
-func (s service) Query(ctx context.Context, ID string, limit int64) (*response.Query, error) {
+func (s service) Query(ctx context.Context, ID, limit int64) (*response.Query, error) {
 	stories, err := s.repo.Query(ctx, ID, limit)
 	if err != nil {
 		return nil, err

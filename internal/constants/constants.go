@@ -7,4 +7,7 @@ const (
 	StoryApproved int32 = 1
 	// StoryDenied ...
 	StoryDenied int32 = 2
+
+	// DefaultStoryLimit ...
+	DefaultStoryLimit int64 = 3
 )

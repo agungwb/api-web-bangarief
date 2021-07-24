@@ -1,10 +1,12 @@
 package story
 
 import (
+	"api-web-bangarief/internal/constants"
 	"api-web-bangarief/internal/errors"
 	"api-web-bangarief/internal/story/request"
 	"api-web-bangarief/pkg/log"
 	"net/http"
+	"strconv"
 
 	routing "github.com/go-ozzo/ozzo-routing/v2"
 )
@@ -24,8 +26,29 @@ type resource struct {
 
 func (r resource) query(c *routing.Context) error {
 	ctx := c.Request.Context()
+	var err error
 
-	response, err := r.service.Query(ctx, c.Query("id"), 3)
+	var ID int64
+	queryID := c.Query("id")
+	if queryID != "" {
+		ID, err = strconv.ParseInt(queryID, 10, 64)
+		if err != nil {
+			r.logger.With(ctx).Info(err)
+			return errors.BadRequest("")
+		}
+	}
+
+	limit := constants.DefaultStoryLimit
+	queryLimit := c.Query("limit")
+	if queryLimit != "" {
+		limit, err = strconv.ParseInt(queryLimit, 10, 64)
+		if err != nil {
+			r.logger.With(ctx).Info(err)
+			return errors.BadRequest("")
+		}
+	}
+
+	response, err := r.service.Query(ctx, ID, limit)
 	if err != nil {
 		return err
 	}
