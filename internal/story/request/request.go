@@ -17,8 +17,8 @@ type Create struct {
 }
 
 // Validate ...
-func (req Create) Validate() error {
-	return validation.ValidateStruct(&req,
+func (req *Create) Validate() error {
+	return validation.ValidateStruct(req,
 		validation.Field(&req.Author, validation.Required),
 		validation.Field(&req.Title, validation.Required),
 		validation.Field(&req.Story, validation.Required),
@@ -27,7 +27,7 @@ func (req Create) Validate() error {
 }
 
 // Populate ...
-func (req Create) Populate(data *entity.Story) {
+func (req *Create) Populate(data *entity.Story) {
 	data.Author = sql.NullString{String: req.Author, Valid: true}
 	data.Title = sql.NullString{String: req.Title, Valid: true}
 	data.Story = sql.NullString{String: req.Story, Valid: true}

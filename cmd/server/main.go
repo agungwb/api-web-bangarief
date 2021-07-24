@@ -6,6 +6,7 @@ import (
 	"api-web-bangarief/internal/config"
 	"api-web-bangarief/internal/errors"
 	"api-web-bangarief/internal/healthcheck"
+	"api-web-bangarief/internal/story"
 	"api-web-bangarief/pkg/accesslog"
 	"api-web-bangarief/pkg/dbcontext"
 	"api-web-bangarief/pkg/log"
@@ -13,14 +14,15 @@ import (
 	"database/sql"
 	"flag"
 	"fmt"
-	"github.com/go-ozzo/ozzo-dbx"
-	"github.com/go-ozzo/ozzo-routing/v2"
-	"github.com/go-ozzo/ozzo-routing/v2/content"
-	"github.com/go-ozzo/ozzo-routing/v2/cors"
-	_ "github.com/lib/pq"
 	"net/http"
 	"os"
 	"time"
+
+	dbx "github.com/go-ozzo/ozzo-dbx"
+	routing "github.com/go-ozzo/ozzo-routing/v2"
+	"github.com/go-ozzo/ozzo-routing/v2/content"
+	"github.com/go-ozzo/ozzo-routing/v2/cors"
+	_ "github.com/lib/pq"
 )
 
 // Version indicates the current version of the application.
@@ -95,6 +97,11 @@ func buildHandler(logger log.Logger, db *dbcontext.DB, cfg *config.Config) http.
 	auth.RegisterHandlers(rg.Group(""),
 		auth.NewService(cfg.JWTSigningKey, cfg.JWTExpiration, logger),
 		logger,
+	)
+
+	story.RegisterHandlers(rg.Group(""),
+		story.NewService(story.NewRepository(db, logger), logger),
+		authHandler, logger,
 	)
 
 	return router

@@ -21,7 +21,7 @@ type Query struct {
 }
 
 // Set ...
-func (res Query) Set(data []entity.Story) {
+func (res *Query) Set(data []entity.Story) {
 	res.Data.Stories = make([]story, 0)
 
 	for _, item := range data {
@@ -46,7 +46,7 @@ type Create struct {
 }
 
 // Set ...
-func (res Create) Set(data *entity.Story) {
+func (res *Create) Set(data *entity.Story) {
 	res.Data.Story.ID = data.ID
 	res.Data.Story.Author = data.Author.String
 	res.Data.Story.Title = data.Title.String
