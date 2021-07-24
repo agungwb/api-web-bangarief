@@ -1,6 +1,7 @@
 package story
 
 import (
+	"api-web-bangarief/internal/constants"
 	"api-web-bangarief/internal/entity"
 	"api-web-bangarief/pkg/dbcontext"
 	"api-web-bangarief/pkg/log"
@@ -35,10 +36,11 @@ func (r repository) Query(ctx context.Context, ID, limit int64) ([]entity.Story,
 	query := r.db.With(ctx).
 		Select().
 		From("story").
+		Where(dbx.HashExp{"status": constants.StoryApproved}).
 		OrderBy("id DESC")
 
 	if ID > 0 {
-		query.Where(dbx.NewExp("id < {:ID}", dbx.Params{"ID": ID}))
+		query.AndWhere(dbx.NewExp("id < {:ID}", dbx.Params{"ID": ID}))
 	}
 
 	if limit > 0 {
