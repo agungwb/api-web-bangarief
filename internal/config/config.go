@@ -2,14 +2,15 @@ package config
 
 import (
 	"api-web-bangarief/pkg/log"
-	"github.com/go-ozzo/ozzo-validation/v4"
+	"io/ioutil"
+
+	validation "github.com/go-ozzo/ozzo-validation/v4"
 	"github.com/qiangxue/go-env"
 	"gopkg.in/yaml.v2"
-	"io/ioutil"
 )
 
 const (
-	defaultServerPort         = 8080
+	defaultServerPort         = 8081
 	defaultJWTExpirationHours = 72
 )
 
