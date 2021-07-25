@@ -68,7 +68,7 @@ This API only return stories with approved status
 | Yes      | author | string |
 | Yes      | title  | string |
 | Yes      | story  | string |
-| Yes      | email  | string |
+| No       | email  | string |
 
 ```json
 {

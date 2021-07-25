@@ -22,7 +22,7 @@ func (req *Create) Validate() error {
 		validation.Field(&req.Author, validation.Required),
 		validation.Field(&req.Title, validation.Required),
 		validation.Field(&req.Story, validation.Required),
-		validation.Field(&req.Email, validation.Required, is.Email),
+		validation.Field(&req.Email, is.Email),
 	)
 }
 
