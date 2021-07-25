@@ -17,6 +17,7 @@ type Query struct {
 	Message string `json:"message"`
 	Data    struct {
 		Stories []story `json:"stories"`
+		Total   int64   `json:"total"`
 	} `json:"data"`
 }
 

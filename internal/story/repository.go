@@ -13,7 +13,8 @@ import (
 // Repository ...
 type Repository interface {
 	Create(ctx context.Context, story *entity.Story) error
-	Query(ctx context.Context, ID, limit int64) ([]entity.Story, error)
+	CountApproved(ctx context.Context) (int64, error)
+	QueryApproved(ctx context.Context, ID, limit int64) ([]entity.Story, error)
 }
 
 type repository struct {
@@ -30,7 +31,17 @@ func (r repository) Create(ctx context.Context, story *entity.Story) error {
 	return r.db.With(ctx).Model(story).Insert()
 }
 
-func (r repository) Query(ctx context.Context, ID, limit int64) ([]entity.Story, error) {
+func (r repository) CountApproved(ctx context.Context) (int64, error) {
+	var count int64
+	err := r.db.With(ctx).
+		Select("COUNT(*)").
+		From("story").
+		Where(dbx.HashExp{"status": constants.StoryApproved}).
+		Row(&count)
+	return count, err
+}
+
+func (r repository) QueryApproved(ctx context.Context, ID, limit int64) ([]entity.Story, error) {
 	var data []entity.Story
 
 	query := r.db.With(ctx).

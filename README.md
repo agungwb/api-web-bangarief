@@ -44,7 +44,8 @@ This API only return stories with approved status
         "email": "hifadhlan@gmail.com",
         "created_on": "2021-07-24 19:28:46.856172 +0000 +0000"
       }
-    ]
+    ],
+    "total": 4
   }
 }
 ```

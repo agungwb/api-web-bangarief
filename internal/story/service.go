@@ -28,7 +28,12 @@ func NewService(repo Repository, logger log.Logger) Service {
 }
 
 func (s service) Query(ctx context.Context, ID, limit int64) (*response.Query, error) {
-	stories, err := s.repo.Query(ctx, ID, limit)
+	stories, err := s.repo.QueryApproved(ctx, ID, limit)
+	if err != nil {
+		return nil, err
+	}
+
+	count, err := s.repo.CountApproved(ctx)
 	if err != nil {
 		return nil, err
 	}
@@ -36,6 +41,7 @@ func (s service) Query(ctx context.Context, ID, limit int64) (*response.Query, e
 	var response response.Query
 	response.Message = "success.query_stories"
 	response.Set(stories)
+	response.Data.Total = count
 
 	return &response, nil
 }
